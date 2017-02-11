@@ -1,0 +1,11 @@
+commit 088f6247d8b7ba987351a4ad471800b9a3c3d6a9
+Author: Nikita <herndlhofer@iclooud.com>
+Date:   Tue Feb 7 11:57:14 2017 +0300
+
+    added status.txt
+
+commit 2fc6d5f7badaadc63f051bf18dccbcc14a941f1d
+Author: Nikita <herndlhofer@iclooud.com>
+Date:   Tue Feb 7 11:56:32 2017 +0300
+
+    add .gitignore
