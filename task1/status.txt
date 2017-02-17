@@ -14,4 +14,3 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 On branch master
 nothing to commit, working tree clean.
-so<kueh<soieukfn
