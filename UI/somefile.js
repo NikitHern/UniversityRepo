@@ -180,7 +180,6 @@ var articles = [
 	function getArticles (skip, top, filterConfig){
 	skip = skip||0;
 	top = top||10;
-	debugger;
 	function callback (element, index, array){
 		var endArray;
 		if (filterConfig && filterConfig.author){
@@ -225,7 +224,7 @@ function getArticle(idString) {
 	}
 }
 function valdiateArticle(object){
-	debugger;
+
 	if (   object.id != null 
 		&& object.id >= 1 
 		&& object. title != null 
