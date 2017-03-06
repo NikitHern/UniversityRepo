@@ -1,0 +1,23 @@
+//как показать, что removeArticle и editArticle что-то поменяли?
+
+getArticles(0, 19, {author: "author10"})
+
+Array[1]0:
+ Object
+author: "author10"
+content: "orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue."
+createdAt: Tue Feb 28 2017 02:00:00 GMT+0300 (Belarus Normalzeit)
+id: 7
+summary: "Lorem ipsum dolor sit amet,."
+tags: "nice, good, health, dog"
+title: "Title 3"
+valdiateArticle(articles[0])
+true
+
+editArticle(1, {title : "NEW TITLE"})
+
+undefined
+
+removeArticle(1)
+
+undefined
