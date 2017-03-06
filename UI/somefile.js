@@ -80,14 +80,14 @@ var articles = [
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
 	},
-	id: 9,
+	{	id: 9,
 		title: "Title 9",
 		summary: "Lorem ipsum dolor sit amet,.",
 		createdAt: new Date("2017-02-27T23:00:00"),
 		author: "author0",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 10,
 		title: "Title 00",
 		summary: "Lorem ipsum dolor sit amet,.",
@@ -95,7 +95,7 @@ var articles = [
 		author: "author7",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 11,
 		title: "Title 11",
 		summary: "Lorem ipsum dolor sit amet,.",
@@ -103,7 +103,7 @@ var articles = [
 		author: "author7",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 12,
 		title: "Title 12",
 		summary: "Lorem ipsum dolor sit amet,.",
@@ -111,7 +111,7 @@ var articles = [
 		author: "author12",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 13,
 		title: "Title 13",
 		summary: "Lorem ipsum dolor sit amet,.",
@@ -119,7 +119,7 @@ var articles = [
 		author: "author13",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 14,
 		title: "Title 14",
 		summary: "Lorem ipsum dolor sit amet,.",
@@ -127,7 +127,7 @@ var articles = [
 		author: "author14",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 15,
 		title: "Title 15",
 		summary: "Lorem ipsum dolor sit amet,.",
@@ -135,7 +135,7 @@ var articles = [
 		author: "author14",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 16,
 		title: "Title 16",
 		summary: "Lorem ipsum dolor sit amet,.",
@@ -143,7 +143,7 @@ var articles = [
 		author: "author14",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 17,
 		title: "Title 17",
 		summary: "Lorem ipsum dolor sit amet,.",
@@ -151,7 +151,7 @@ var articles = [
 		author: "author17",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 18,
 		title: "Title 18",
 		summary: "Lorem ipsum dolor sit amet,.",
@@ -159,7 +159,7 @@ var articles = [
 		author: "author18",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 19,
 		title: "Title 19",
 		summary: "Lorem ipsum dolor sit amet,.",
@@ -167,7 +167,7 @@ var articles = [
 		author: "author19",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
 		tags :"nice, good, health, dog"
-	},
+	},{
 	id: 20,
 		title: "Title 20",
 		summary: "Lorem ipsum dolor sit amet,.",
