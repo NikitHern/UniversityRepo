@@ -1,82 +1,48 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
+    <meta charset="UTF-8">
     <title>Page Title</title> 
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="D:\Semestr4\UI\somefile.js"></script>
 </head> 
 <body> 
-<img src="https://github.com/NikitHern/UniversityRepo/blob/master/mockups/Goodnews.png?raw=true" alt="Logo" id ="Logo">
+<img src="https://github.com/NikitHern/UniversityRepo/blob/master/mockups/Goodnews.png?raw=true" alt="Logo" class ="Logo">
     <div class ="header">
             <h1>Новости </h1> 
     </div>
     <div class="headgrid"> 
-    <label name="userinfo" >Вы вошли в систему как: ...</label> 
-    <ul name ="controlUnits"display: inline-table> 
-        <a href="http://htmlbook.ru/content/izobrazhenie-v-kachestve-ssylki">
+    <label name="user-info" >Вы вошли в систему как: ...</label> 
+    <ul class ="control-units" > 
+        <a href = "#">
             <img name="left" alt="Left" src="https://github.com/NikitHern/UniversityRepo/blob/master/mockups/strelkavlevo.png?raw=true"> 
         </a>
-        <button name="addButton" >Добавить новость</button> 
-        <a href="http://htmlbook.ru/content/izobrazhenie-v-kachestve-ssylki">
+        <button name="add-button" >Добавить новость</button> 
+        <a href="#">
             <img name="right" alt="Right" src="https://github.com/NikitHern/UniversityRepo/blob/master/mockups/strelkavlevo.png?raw=true"> 
         </a>
     </ul> 
     <ul class ="content">
-        <div class ="news1">
-            <a id = "news1head" href="https://www.google.by"> Заголовок1</a>
-            <p id = "info1">Author, tags, date, etc.</p>
-            <p id = "content1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.</p>
+<template id="template-article-list-item">
+        <div class="article-list-item" data-id="id">
+            <h3 class="article-list-item-title">
+                Заголовок статьи
+            </h3>
+            <p class="article-list-item-summary">
+            </p>
+             <div class="article-list-item-meta">
+                <p class="item-tags"> Tags: <ul class="article-list-item-tags"> </ul></p>
+                <p class="item-author"> Author: <span class="article-list-item-author"></span></p>
+                <span>date: <span class="article-list-item-date"></span>
+            </div>
         </div>
-        <div class ="news2">
-            <a id = "news2head" href="https://www.google.by"> Заголовок2</a>
-            <p id = "info2">Author, tags, date, etc.</p>
-            <p id = "content2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.  </p>
-        </div>
-        <div class ="news3">
-            <a id = "news3head" href="https://www.google.by"> Заголовок3</a>
-            <p id = "info3">Author, tags, date, etc.</p>
-            <p id = "content3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue </p>
-        </div>
-        <div class ="news4">
-            <a id = "news4head" href="https://www.google.by"> Заголовок4</a>
-            <p id = "info4">Author, tags, date, etc.</p>
-            <p id = "content4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue</p>
-        </div>
-        <div class ="news5">
-            <a id = "news5head" href="https://www.google.by"> Заголовок5</a>
-            <p id = "info5">Author, tags, date, etc.</p>
-            <p id = "content5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue</p>
-        </div>
-        <div class ="news6">
-            <a id = "news6head" href="https://www.google.by"> Заголовок6</a>
-            <p id = "info6">Author, tags, date, etc.</p>
-            <p id = "content6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue</p>
-        </div>
-        <div class ="news7">
-            <a id = "news7head" href="https://www.google.by"> Заголовок7</a>
-            <p id = "info7">Author, tags, date, etc.</p>
-            <p id = "content7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue</p>
-        </div>
-        <div class ="news8">
-            <a id = "news8head" href="https://www.google.by"> Заголовок8</a>
-            <p id = "info8">Author, tags, date, etc.</p>
-            <p id = "content8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue</p>
-        </div>
-        <div class ="news9">
-            <a id = "news9head" href="https://www.google.by"> Заголовок9</a>
-            <p id = "info9">Author, tags, date, etc.</p>
-            <p id = "content9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue</p>
-        </div>
-        <div class ="news10">
-            <a id = "news10head" href="https://www.google.by"> Заголовок10</a>
-            <p id = "info10">Author, tags, date, etc.</p>
-            <p id = "content10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue</p>
-        </div>
+    </template>
     </ul>
 </div> 
     <div class ="footer">
-            <p id="authorinfo"> authors email: herndlhofer@icloud.com</p>
-            <button id="logout">Выход</button>
-            <p id="footerinfo">some information</p>
+            <p class="author-info"> authors email: herndlhofer@icloud.com</p>
+            <button class="logout">Выход</button>
+            <p class="footer-info">some information</p>
     </div>
 </body> 
 </html>

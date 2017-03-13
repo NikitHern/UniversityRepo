@@ -288,9 +288,9 @@ var articleRenderer = ( function() {
         var tags = template.content.querySelector('.article-list-item-tags');
         tags.innerHTML = "Tags:";
 
-        for(i = 0; i < article.tags.length; i++){
+        for(i = 0; i < article.tags.length; i++){ 
 			var tmp = document.createElement('li');
-			tmp.innerHTML = "<li>" + article.tags[i] + "</li>";
+			tmp.innerHTML = "<li>" + article.tags[i] + "</li>"; 
 			tags.appendChild(tmp);
 		}
         return template.content.querySelector('.article-list-item').cloneNode(true);
