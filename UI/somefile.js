@@ -296,7 +296,7 @@ var articleRenderer = ( function() {
         return template.content.querySelector('.article-list-item').cloneNode(true);
     }
     function formatDate(d) {
-        return d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' +
+        return d.getDate() + '/'+ (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' +
             d.getHours() + ':' + d.getMinutes();
     }
      return {
