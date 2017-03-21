@@ -261,29 +261,21 @@ function removeArticle(articleId){
 var articleRenderer = ( function() {
 	var ARTICLE_TEMPLATE;
     var ARTICLE_LIST_NODE;
-    function addArticle(object){
-    	if (addArticleToData(object)){
+    function addArticleToDOM(object){
     		var article = renderArticle(object);
     		 var contentNode = document.querySelector(".content");
     		 contentNode.insertBefore(article, contentNode.firstChild);
-    		 return true;
-    	}
-    	return false;
     }
-    function editArticle(index, object){
+    function editArticleInDOM(index, object){
+    	object = renderArticle(object);
     	var articleToEdit =  document.querySelector("[data-id='"+ index + "']");
-    	 var art = renderArticle(editArticleInData(index, object));
     	 var contentNode = document.querySelector(".content");
-    	 contentNode.replaceChild(art, articleToEdit)
+    	 contentNode.replaceChild(object, articleToEdit)
     }
     function deleteArticleFromDOM(index){
 		var articleToDelete =  document.querySelector("[data-id='"+ index + "']");
 		var contentNode = document.querySelector(".content");
 		contentNode.removeChild(articleToDelete);
-	}
-	function deleteArticle(index){
-		deleteArticleFromDOM(index);
-		removeArticle(index);
 	}
 	function init(){
 		ARTICLE_TEMPLATE = document.querySelector('#template-article-list-item');
@@ -325,12 +317,12 @@ var articleRenderer = ( function() {
             d.getHours() + ':' + d.getMinutes();
     }
      return {
-     	addArticle : addArticle,
-     	editArticle : editArticle,
+     	addArticleToDOM : addArticleToDOM,
+     	editArticleInDOM : editArticleInDOM,
         init: init,
         insertArticles: insertArticles,
         removeArticles: removeArticles,
-        deleteArticle : deleteArticle
+        deleteArticleFromDOM : deleteArticleFromDOM
     };
 }());
 document.addEventListener('DOMContentLoaded', startApp);
@@ -342,4 +334,19 @@ function renderArticles(skip, top) {
 	articleRenderer.removeArticles();
 	 var articles = getArticles(skip, top);
 	   articleRenderer.insertArticles(articles);
+}
+function deleteArticle(index){
+		articleRenderer.deleteArticleFromDOM(index);
+		removeArticle(index);
+	}
+function addArticle(object){
+	if (addArticleToData(object)){
+    		articleRenderer.addArticleToDOM(object);
+    		 return true;
+    	}
+    	return false;
+}
+function editArticle(index, object){
+		object = editArticleInData(index, object);
+    	articleRenderer.editArticleInDOM(index,object);
 }
