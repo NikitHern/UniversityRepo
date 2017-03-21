@@ -1,3 +1,5 @@
+var user = "Ivan Ivanov";
+
 var articles =  [
 	{
 		id: 1,
@@ -86,7 +88,7 @@ var articles =  [
 		createdAt: new Date("2017-02-27T23:00:00"),
 		author: "author0",
 		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		vtags :["nice", "good", "health", "dog"]
+		tags :["nice", "good", "health", "dog"]
 	},{
 	id: 10,
 		title: "Title 00",
@@ -212,7 +214,7 @@ function valdiateArticle(object){
 		return true;
 	else return false;
 }
-function editArticle(articleId, object){
+function editArticleInData(articleId, object){
 	function callback(element, index, array){
 		if (element.id == articleId)
 			return true;
@@ -233,7 +235,7 @@ function editArticle(articleId, object){
 	}
 		else return articles[articleId];
 }
-function addArticle (object){
+function addArticleToData (object){
 	if (!valdiateArticle(object))
 		return false;
 	for (var i = 0; i < articles.length; i++) {
@@ -259,6 +261,30 @@ function removeArticle(articleId){
 var articleRenderer = ( function() {
 	var ARTICLE_TEMPLATE;
     var ARTICLE_LIST_NODE;
+    function addArticle(object){
+    	if (addArticleToData(object)){
+    		var article = renderArticle(object);
+    		 var contentNode = document.querySelector(".content");
+    		 contentNode.insertBefore(article, contentNode.firstChild);
+    		 return true;
+    	}
+    	return false;
+    }
+    function editArticle(index, object){
+    	var articleToEdit =  document.querySelector("[data-id='"+ index + "']");
+    	 var art = renderArticle(editArticleInData(index, object));
+    	 var contentNode = document.querySelector(".content");
+    	 contentNode.replaceChild(art, articleToEdit)
+    }
+    function deleteArticleFromDOM(index){
+		var articleToDelete =  document.querySelector("[data-id='"+ index + "']");
+		var contentNode = document.querySelector(".content");
+		contentNode.removeChild(articleToDelete);
+	}
+	function deleteArticle(index){
+		deleteArticleFromDOM(index);
+		removeArticle(index);
+	}
 	function init(){
 		ARTICLE_TEMPLATE = document.querySelector('#template-article-list-item');
         ARTICLE_LIST_NODE = document.querySelector('.content');
@@ -287,10 +313,9 @@ var articleRenderer = ( function() {
         
         var tags = template.content.querySelector('.article-list-item-tags');
         tags.innerHTML = "Tags:";
-
         for(i = 0; i < article.tags.length; i++){ 
 			var tmp = document.createElement('li');
-			tmp.innerHTML = "<li>" + article.tags[i] + "</li>"; 
+			tmp.innerHTML = "<li>" + article.tags[i] + " " + "</li>"; 
 			tags.appendChild(tmp);
 		}
         return template.content.querySelector('.article-list-item').cloneNode(true);
@@ -300,9 +325,12 @@ var articleRenderer = ( function() {
             d.getHours() + ':' + d.getMinutes();
     }
      return {
+     	addArticle : addArticle,
+     	editArticle : editArticle,
         init: init,
         insertArticles: insertArticles,
-        removeArticles: removeArticles
+        removeArticles: removeArticles,
+        deleteArticle : deleteArticle
     };
 }());
 document.addEventListener('DOMContentLoaded', startApp);

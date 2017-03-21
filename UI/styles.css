@@ -123,8 +123,12 @@ overflow: auto;
 .item-author{
    margin: 5px;
 }
-.article-list-item-tags{
-  
+.article-list-item-tags li{
+  color: white;
+  display: inline-block;
+  margin:0 2px;
+  background:  rgba(100, 150, 200, 1);
+  border-radius: 5px;
 }
 .article-list-item-author{
   margin: 5px;
