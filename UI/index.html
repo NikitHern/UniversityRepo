@@ -7,21 +7,28 @@
     <script src="somefile.js"></script>
 </head> 
 <body> 
+<div id="container"></div>
 <img src="https://github.com/NikitHern/UniversityRepo/blob/master/mockups/Goodnews.png?raw=true" alt="Logo" class ="Logo">
     <div class ="header">
             <h1>Новости </h1> 
+
     </div>
     <div class="headgrid"> 
-    <label name="user-info" >Вы вошли в систему как: </label> 
-    <ul class ="control-units" > 
+     <center><button id="logout"  >Выход</button> 
+     <input type="text" id="name" placeholder="your name" hidden></input>
+     <input type="password" id="password" placeholder="your password" hidden></input>
+     </center>
+    <label id="user-info" >Вы вошли в систему как: </label> 
+    <center><ul class ="control-units" > 
         <a href = "#">
             <img name="left" alt="Left" src="https://github.com/NikitHern/UniversityRepo/blob/master/mockups/strelkavlevo.png?raw=true"> 
         </a>
-        <button name="add-button" >Добавить новость</button> 
+        <button id="add-button">Добавить новость</button> 
+        <button id="log-in" hidden >Log in!</button>
         <a href= "#">
             <img name="right" alt="Right" src="https://github.com/NikitHern/UniversityRepo/blob/master/mockups/strelkavlevo.png?raw=true"> 
         </a>
-    </ul> 
+    </ul> </center>
     <ul class ="content">
 <template id="template-article-list-item">
         <div class="article-list-item" data-id="id">
@@ -39,10 +46,9 @@
     </template>
     </ul>
 </div> 
-    <div class ="footer">
+    <footer class ="footer">
             <p class="author-info"> authors email: herndlhofer@icloud.com</p>
-            <button class="logout">Выход</button>
             <p class="footer-info">some information</p>
-    </div>
+    </footer>
 </body> 
 </html>
