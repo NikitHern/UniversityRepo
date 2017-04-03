@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta charset="UTF-8">
+    <title>Page Title</title> 
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="somefile.js"></script>
+</head> 
+<body> 
+<div id="container"></div>
+<img src="https://github.com/NikitHern/UniversityRepo/blob/master/mockups/Goodnews.png?raw=true" alt="Logo" class ="Logo">
+    <div class ="header">
+        <h1>Новости </h1> 
+    </div>
+    <div class="headgrid"> 
+     <center><button id="logout"  >Выход</button> 
+      <button id="add-save-button" hidden>Добавить новость</button> 
+      <button id="edit-save-button" hidden>edit новость</button> 
+      <button id="cancel-button"  onclick="location.href='index.html'" hidden >cancel</button> 
+     <input type="text" id="name" placeholder="your name" hidden></input>
+     <input type="password" id="password" placeholder="your password" hidden></input>
+     </center>
+    <label id="user-info" >Вы вошли в систему как: </label> 
+    <center><ul class ="control-units" > 
+    
+        <button id="add-button">Добавить новость</button> 
+        <button id="log-in" hidden >Log in!</button>
+        
+    </ul> </center>
+    <div id="add" hidden>
+       <div class="title-tags">
+        <div class ="title-editor">
+            <h1 class ="title-editor-title"> Title</h1>
+            <textarea maxlength=100 class ="title-editor-input"></textarea>
+        </div>
+         <div class ="tag-editor">
+            <h1 class ="tag-editor-title">tags!</h1>
+            <textarea placeholder="Note, that the tags must be divided by a comma" class ="tag-editor-input"></textarea >  
+        </div>
+        </div>
+        <div class ="summary-editor">
+            <h1 class ="summary-editor-title">Summary!</h1>
+            <textarea maxlength=199 rows=4 class ="summary-editor-input"></textarea >  
+        </div>
+        <div class ="content-editor">
+            <h1 class ="content-editor-title">Content!</h1>
+            <textarea rows=8 class ="content-editor-input"></textarea >  
+        </div>
+    </div>
+</div>
+    <ul class ="content">
+<template id="template-article-list-item">
+        <div class="article-list-item" data-id="id">
+            <h3 class="article-list-item-title" id="item-title">
+                Заголовок статьи
+            </h3>
+            <button class ="delete">delete</button>
+            <p class="article-list-item-summary">
+            </p>
+
+             <div class="article-list-item-meta">
+                <ul class="article-list-item-tags"> </ul>
+                <p class="item-author"> Author: <span class="article-list-item-author"></span></p>
+                <span>date: <span class="article-list-item-date"></span>
+            </div>
+        </div>
+    </template>
+    </ul>
+    <center><button id ="show-more">Show more!</button></center>
+</div> 
+    <footer class ="footer">
+            <p class="author-info"> authors email: herndlhofer@icloud.com</p>
+            <p class="footer-info">some information</p>
+    </footer>
+</body> 
+</html>
