@@ -254,13 +254,15 @@ function editArticleInData(articleId, object){
 function addArticleToData (object){
 	if (!valdiateArticle(object))
 		return false;
-	for (var i = 0; i < JSON.parse(localStorage.getItem("array")).length; i++) {
-		if (object.id == JSON.parse(localStorage.getItem("array"))[i].id){
-			object.id = JSON.parse(localStorage.getItem("array")).length+1;
-			break;
-			}
-		}
-		JSON.parse(localStorage.getItem("array")).unshift(object);
+	//for (var i = 0; i < JSON.parse(localStorage.getItem("array")).length; i++) {
+	//	if (object.id == JSON.parse(localStorage.getItem("array"))[i].id){
+	//		object.id = JSON.parse(localStorage.getItem("array")).length+1;
+	//
+	//		}
+	//	}
+		var arr = JSON.parse(localStorage.getItem("array"));
+			arr.unshift(object);
+		localStorage.setItem("array", JSON.stringify(arr));
 		console.log(JSON.parse(localStorage.getItem("array")));
 		return true;
 }
@@ -479,6 +481,11 @@ var eventRenderer = (function(){
 		userRenderer.drawUser();
 	}
 	function addForm(){
+		var content = document;
+		content.querySelector(".title-editor-input").value = "";
+		content.querySelector(".tag-editor-input").value = "";
+		content.querySelector(".summary-editor-input").value = "";
+		content.querySelector(".content-editor-input").value = "";
 		document.getElementById("logout").setAttribute("hidden", null);
 		document.getElementById("add-button").setAttribute("hidden", null);
 		articleRenderer.removeArticles();
