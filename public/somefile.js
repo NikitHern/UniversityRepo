@@ -9,186 +9,6 @@ var users = [{
 	"password":"17514" //111
 }];
 "use strict";
-var articles =  [
-	{
-		id: 1,
-		title: "Title 1",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author1",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},
-	{
-		id: 2,
-		title: "Title 2",
-		summary: "Lorem ipsum dolor sit amet, .",
-		createdAt: new Date("2017-02-28T23:00:00"),
-		author: "author1",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},
-	{
-		id: 3,
-		title: "Title 3",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author2",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},
-	{
-		id: 4,
-		title: "Title 4",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author7",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},
-	{
-		id: 5,
-		title: "Title 5",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author5",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},
-	{
-		id: 6,
-		title: "Title 3",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author3",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},
-	{
-		id: 6,
-		title: "Title 6",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author2",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},
-	{
-		id: 7,
-		title: "Title 3",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author10",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},
-	{
-		id: 8,
-		title: "Title 3",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author7",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},
-	{	id: 9,
-		title: "Title 9",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author0",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 10,
-		title: "Title 00",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author7",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 11,
-		title: "Title 11",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author7",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 12,
-		title: "Title 12",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author12",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 13,
-		title: "Title 13",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author13",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 14,
-		title: "Title 14",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author14",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 15,
-		title: "Title 15",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author14",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 16,
-		title: "Title 16",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author14",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 17,
-		title: "Title 17",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author17",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 18,
-		title: "Title 18",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author18",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 19,
-		title: "Title 19",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author19",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},{
-	id: 20,
-		title: "Title 20",
-		summary: "Lorem ipsum dolor sit amet,.",
-		createdAt: new Date("2017-02-27T23:00:00"),
-		author: "author20",
-		content:"orem ipsum dolor sit amet, consectetur adipiscing elit. Donec id arcu ac est fringilla laoreet. Curabitur ut faucibus massa. Mauris posuere, nibh sit amet pharetra aliquet, purus neque pulvinar ex, vitae egestas felis metus vitae augue.",
-		tags :["nice", "good", "health", "dog"]
-	},
-
-];
 	function getArticles (skip, top, filterConfig){
 	skip = skip||0;
 	top = top||10;	
@@ -350,7 +170,7 @@ var articleRenderer = ( function() {
 }());
 var userRenderer = (function() {
 	function drawUser(){
-		if (JSON.parse(localStorage.getItem("user")) == "")
+		if (JSON.parse(localStorage.getItem("user")) == "" || JSON.parse(localStorage.getItem("user")) == null)
 		{
 			var DOMUser = document.querySelector('#user-info');
 			DOMUser.innerHTML='Please, Log In';
@@ -364,6 +184,7 @@ var userRenderer = (function() {
 			document.getElementById("password").removeAttribute("hidden");
 		}
 		else{
+			user = JSON.parse(localStorage.getItem("user"));
 			var DOMUser = document.querySelector('#user-info');
 			DOMUser.innerHTML='Logged in as ' + user;
 			var addButton = document.getElementById("add-button");
@@ -418,9 +239,8 @@ var eventRenderer = (function(){
 		document.getElementById("edit-save-button").removeAttribute("hidden");
 		var Button = document.getElementById("edit-save-button");
 		var index = this.parentNode.getAttribute("data-id");
-		Button.addEventListener("click", function (){
-			editForm(index);
-		});
+		Button.setAttribute("button-id", index);
+		Button.addEventListener("click", editForm)
 		document.getElementById("show-more").setAttribute("hidden", null);
 		document.getElementById("add").removeAttribute("hidden");
 		document.querySelector(".title-editor-input").value = this.innerHTML;
@@ -432,22 +252,26 @@ var eventRenderer = (function(){
 		console.log("full view");
 	}
 	}
-	function editForm(index){
-		var article = {"id": index,
+	function editForm(){
+				var index = this.getAttribute("button-id");
+				var article = {"id": index,
 				"title": document.querySelector(".title-editor-input").value,
 				"tags": document.querySelector(".tag-editor-input").value.split(","),
 				"summary": document.querySelector(".summary-editor-input").value, 
 				"content": document.querySelector(".content-editor-input").value, 
 				"createdAt": new Date(),
 				"author": localStorage.getItem("user") }
-				renderArticles();
 				document.getElementById("add").setAttribute("hidden", null);
+				renderArticles();
 				editArticle(index, article);
+				renderArticles();
 				document.getElementById("logout").removeAttribute("hidden");
 				document.getElementById("add-button").removeAttribute("hidden");
 				document.getElementById("cancel-button").setAttribute("hidden", null);
 				document.getElementById("edit-save-button").setAttribute("hidden", null)
 				document.getElementById("show-more").removeAttribute("hidden");
+				this.removeEventListener("click", editForm)
+
 	}
 	function enterAcc(){
 		var tmpuser = document.getElementById("name").value;
@@ -532,10 +356,11 @@ var eventRenderer = (function(){
 }());
 document.addEventListener('DOMContentLoaded', startApp);
 function startApp() {
-	if (localStorage.getItem("array") == null){
-	localStorage.setItem("array", JSON.stringify(articles));
-		}
+	var req = new XMLHttpRequest();
+	req.open("GET", "/articles", false);
+	req.send();
 	userRenderer.drawUser();
+	localStorage.setItem("array",JSON.parse(req.responseText));
 	 articleRenderer.init();
 	 eventRenderer.init();
 	 renderArticles();
