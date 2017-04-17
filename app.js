@@ -3,20 +3,19 @@ var app = express();
 var bodyParser = require('body-parser');
 var db = require('diskdb');
 db = db.connect('/path/to/db-folder', ['collection-name']);
-
 app.use(express.static('public'));
 app.get('/hello', function (req, res) {
 	res.send('Hello World!');
-	});
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var users = [{
 	"name" :"admin",
-	"password" : "17534" //123
+	"password" : "123" //123
 },
 {
 	"name":"moderator",
-	"password":"17514" //111
+	"password":"111" //111
 }];
 var articles =  [
 	{
@@ -198,76 +197,84 @@ var articles =  [
 	},
 
 ];
-app.get('/user', function (req, res) {
-  if(req.query.id) {
-    return res.json(users.filter(user => Number(req.query.id) === user.id)[0]);
-  }
-  res.json(users);
-});
-app.get('/user/:id', function (req, res) {
-  res.json(users.filter(user => Number(req.params.id) === user.id)[0]);
-});
-app.get('/user401/:id', function (req, res) {
-  res.status(401).end();
-});
-app.get('/user500/:id', function (req, res) {
-  // recursion, max call stack
-  (function a(){
-    a();
-  }());
-
-  res.end(`cool`);
-});
+var skip = 0;
+function FindUser(object){
+	for (let i = 0; i < users.length; i++){
+		if (object.name == users[i].name && object.password == users[i].password)
+		return true;
+	}
+	return false;
+}
+top = articles.length;
+function getArticles (skip, top, filterConfig){
+	skip = skip||0;
+	top = top||10;	
+		function callback(element, index, array){
+			if (!filterConfig){
+				return true;
+			}
+			if (filterConfig.author != null || filterConfig.author != element.author)
+				return false;
+			if (filterConfig.createdAt != null || filterConfig.createdAt != element.createdAt)
+				return false;
+			if (filterConfig.id != null || filterConfig.id != element.id)
+				return false;
+			return true;
+		}
+		var arr = articles;
+	return arr.filter(callback).slice(skip, top);
+}
+function editArticle(object){
+	function callback(element, index, array){
+		if (element.id == array[index].id)
+			return true;
+		else return false;
+	}
+	let articleId = articles.findIndex(callback);
+	if (articleId == -1){
+		return false;
+	}
+	articles[articleId] = object;
+	return true;
+}
+function removeArticle(articleId){
+	function callback(element, index, array){
+		if (element.id == articleId)
+			return true;
+		else return false;
+	}
+	articleId = articles.findIndex(callback);
+	if (articleId == -1){
+		return false;
+	}
+	console.log(articles.splice(articleId, 1));
+	return true;
+}
 app.get('/articles', function (req, res) {
-
-	res.json(JSON.stringify(articles));
-return JSON.stringify(articles);
+res.json(getArticles(skip, skip + 5, null ));
 });
-app.post('/user', function (req, res) {
-  let user = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    id: users.length
-  };
-  users.push(user);
-
-  res.json(user);
+app.get('/articles/count', function (req, res) {
+return getArticles(skip, top, null );
 });
-
 app.put('/user', function (req, res) {
-  let user = users.filter(user => Number(req.body.id) === user.id)[0];
-  user.firstName = req.body.firstName;
-  user.lastName = req.body.lastName;
-
-  res.json(user);
+  let user = req.body;
+  res.json(FindUser(user));
 });
-
-app.delete('/user', function (req, res) {
-  let id = req.query.id || req.body.id;
-  users = users.filter(user => Number(id) !== user.id);
-  res.json({idWasRemoved: Number(id)});
+app.put("/addarticle", function(req, res){
+let obj = req.body;
+articles.unshift(obj);
 });
-
-app.delete('/user/:id', function (req, res) {
-  let id = req.params.id;
-  users = users.filter(user => Number(id) !== user.id);
-  res.json({idWasRemoved: Number(id)});
+app.put("/editarticle", function(req, res){
+let obj = req.body;
+editArticle(obj);
 });
+app.put("/removearticle", function(req, res){
+let obj = req.body;
 
-app.patch('/user', function (req, res) {
-  let user = users.filter(user => Number(req.body.id) === user.id)[0];
-  
-  if (req.body.firstName) {
-    user.firstName = req.body.firstName;
-  }
-
-  if (req.body.lastName) {
-    user.lastName = req.body.lastName;
-  }
-
-  res.json(user);
 });
-
+app.put("/articlecount", function (req, res){
+skip = req.body;
+})
 app.listen(8080, function() {
   console.log('Node app is running on port 8080');
 });

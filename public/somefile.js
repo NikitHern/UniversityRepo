@@ -1,20 +1,12 @@
 var user = "";
 var articleNumber = 5;
-var users = [{
-	"name" :"admin",
-	"password" : "17534" //123
-},
-{
-	"name":"moderator",
-	"password":"17514" //111
-}];
 "use strict";
 	function getArticles (skip, top, filterConfig){
 	skip = skip||0;
 	top = top||10;	
 		function callback(element, index, array){
 			if (!filterConfig){
-				return;
+				return true;
 			}
 			if (filterConfig.author != null || filterConfig.author != element.author)
 				return false;
@@ -170,7 +162,7 @@ var articleRenderer = ( function() {
 }());
 var userRenderer = (function() {
 	function drawUser(){
-		if (JSON.parse(localStorage.getItem("user")) == "" || JSON.parse(localStorage.getItem("user")) == null)
+		if (localStorage.getItem("user") == "" || localStorage.getItem("user") == "\"\"")
 		{
 			var DOMUser = document.querySelector('#user-info');
 			DOMUser.innerHTML='Please, Log In';
@@ -219,14 +211,26 @@ var eventRenderer = (function(){
 		console.log("delete");
 	}
 	function more(){
-		if (articleNumber + 5 >= JSON.parse(localStorage.getItem("array")).length ){
-			articleNumber = JSON.parse(localStorage.getItem("array")).length ;
-		}
-		else {
-		articleNumber = articleNumber + 5;
-		}
-		articleRenderer.removeArticles();
-		renderArticles();
+		//Need to send and get data at the same time
+	let req = new XMLHttpRequest();
+	 req.addEventListener(req.onreadystatechange, function(){
+		 let req2 = new XMLHttpRequest();
+		 req2.open("GET", "/articles");
+		 req2.send();
+		 req2.addEventListener("load", function(req, res){
+			let arr = JSON.parse(localStorage.getItem("array"));
+			arr = arr.concat(arr, JSON.parse(req2.responseText));
+			localStorage.setItem("array", JSON.stringify(arr));
+			renderArticles();
+		 });
+	});
+	req.open("PUT", "/articlecount");
+	let skip = articleNumber - 5;
+	req.send(skip);
+	req.timeout = 10000;
+	req.addEventListener("ontimeout", (function() {
+		alert("WTF");
+	}, 10000));
 	}
 	function fullView(){
 		if (JSON.parse(localStorage.getItem("user")) == ""){
@@ -276,26 +280,25 @@ var eventRenderer = (function(){
 	function enterAcc(){
 		var tmpuser = document.getElementById("name").value;
 		var tmppass = document.getElementById("password").value;
-		var key = parseInt("0100010000000101", 2);
-		tmppass = tmppass^key;
 		tmpuser = {"name": tmpuser,
 					"password": tmppass};
-					function callback(element, index, array){
-			if (tmpuser.name != null && tmpuser.name != undefined && tmpuser.name != array[index].name)
-				return false;
-			if (tmpuser.password != null && tmpuser.password != undefined && tmpuser.password != array[index].password)
-				return false;
-			return true;
-		}
-		if (users.find(callback)){
+		var req = new XMLHttpRequest();
+		req.open("PUT", "/user");
+		 req.setRequestHeader('content-type', 'application/json');
+		 req.send(JSON.stringify(tmpuser));
+		  req.addEventListener('load', function () {
+                    let userFound = JSON.parse(this.responseText);
+		if (userFound){
 			user = tmpuser.name;
 			localStorage.setItem("user", JSON.stringify(user));
 		}
 		else {
 			alert("No such username and password combination found!")
 			user = "";
+			localStorage.setItem("user", "");
 		}
 		userRenderer.drawUser();
+		  });
 	}
 	function exitAcc(){
 		user = "";
@@ -356,14 +359,17 @@ var eventRenderer = (function(){
 }());
 document.addEventListener('DOMContentLoaded', startApp);
 function startApp() {
-	var req = new XMLHttpRequest();
-	req.open("GET", "/articles", false);
-	req.send();
-	userRenderer.drawUser();
-	localStorage.setItem("array",JSON.parse(req.responseText));
-	 articleRenderer.init();
+		userRenderer.drawUser();
 	 eventRenderer.init();
+	 
+	 var req = new XMLHttpRequest();
+	 req.addEventListener("load", function(){
+	 localStorage.setItem("array",req.responseText);
+	 articleRenderer.init();
 	 renderArticles();
+	});
+	req.open("GET", "/articles");
+	req.send();
 }
 function renderArticles(skip, top) {
 	articleRenderer.removeArticles();
@@ -373,10 +379,18 @@ function renderArticles(skip, top) {
 function deleteArticle(index){
 		articleRenderer.deleteArticleFromDOM(index);
 		removeArticle(index);
+		var req = new XMLHttpRequest();
+		req.open("PUT", "/removearticle");
+		req.setRequestHeader('content-type', 'application/json');
+		req.send(index);
 	}
 function addArticle(object){
 	if (addArticleToData(object)){
     		articleRenderer.addArticleToDOM(object);
+			 var req = new XMLHttpRequest();
+			 req.open("PUT", "/addarticle");
+			 req.setRequestHeader('content-type', 'application/json');
+			 req.send(object);
     		 return true;
     	}
     	return false;
@@ -384,10 +398,11 @@ function addArticle(object){
 function editArticle(index, object){
 		if (object = editArticleInData(index, object)){
     	articleRenderer.editArticleInDOM(index,object);
+		var req = new XMLHttpRequest();
+		req.open("PUT", "/editarticle");
+		req.setRequestHeader('content-type', 'application/json');
+		req.send(object);
     	return true;
 	}
 	return false;
-}
-function refreshLocalStorage(){
-	localStorage.setItem("array", JSON.stringify(articles));
 }
