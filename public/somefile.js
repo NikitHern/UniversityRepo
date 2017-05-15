@@ -213,24 +213,17 @@ var eventRenderer = (function(){
 	function more(){
 		//Need to send and get data at the same time
 	let req = new XMLHttpRequest();
-	 req.addEventListener(req.onreadystatechange, function(){
-		 let req2 = new XMLHttpRequest();
-		 req2.open("GET", "/articles");
-		 req2.send();
-		 req2.addEventListener("load", function(req, res){
-			let arr = JSON.parse(localStorage.getItem("array"));
-			arr = arr.concat(arr, JSON.parse(req2.responseText));
-			localStorage.setItem("array", JSON.stringify(arr));
-			renderArticles();
-		 });
-	});
-	req.open("PUT", "/articlecount");
-	let skip = articleNumber - 5;
-	req.send(skip);
-	req.timeout = 10000;
-	req.addEventListener("ontimeout", (function() {
-		alert("WTF");
-	}, 10000));
+	articleNumber = JSON.parse(localStorage.getItem("array")).length;
+	req.addEventListener("load", function(){
+		let arr = JSON.parse(localStorage.getItem("array"));
+		arr.concat(JSON.parse(req.responseText));
+		localStorage.setItem("array", JSON.stringify(arr));
+		articleNumber = articleNumber + 5;
+		articleRenderer.removeArticles();
+		articleRenderer.insertArticles();
+	})
+	req.open("GET", "/articles?skip=" + articleNumber);
+	req.send();
 	}
 	function fullView(){
 		if (JSON.parse(localStorage.getItem("user")) == ""){
@@ -368,7 +361,7 @@ function startApp() {
 	 articleRenderer.init();
 	 renderArticles();
 	});
-	req.open("GET", "/articles");
+	req.open("GET", "/articles?skip=0");
 	req.send();
 }
 function renderArticles(skip, top) {
